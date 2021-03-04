@@ -19,7 +19,7 @@ app.use(express.json());
 app.get("/", (request, response) => response.status(200).send("hello world"));
 
 app.post("/payments/create", async (request, response) => {
-    const total = request.query.total;
+    const total = request.query.total; // eslint-disable-line no-use-before-define
 
     console.log('Payment Request BOOM!! for this amount >>> ', total)
 
@@ -30,7 +30,7 @@ app.post("/payments/create", async (request, response) => {
 
     response.status(201).send({
         clientSecret: paymentIntent.client_secret,
-    })
+    });
 });
 
 // Listen command
